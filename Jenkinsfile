@@ -2,8 +2,11 @@ pipeline {
     agent { 
         node {
             label 'docker-agent-alpine'
-            }
-      }
+        }
+    }
+    environment {
+        DOCKER_HOST = 'tcp://127.0.0.1:2375'
+    }
     triggers {
         pollSCM('* * * * *')
     }
@@ -20,7 +23,8 @@ pipeline {
             steps {
                 echo "Jenkins Testing Updated.."
                 sh '''
-                echo "doing test stuff.."
+                echo "Doing test stuff.."
+                echo "Checking Docker processes..."
                 docker ps
                 '''
             }
