@@ -21,6 +21,7 @@ pipeline {
                 echo "Jenkins Testing Updated.."
                 sh '''
                 echo "doing test stuff.."
+                docker ps
                 '''
             }
         }
