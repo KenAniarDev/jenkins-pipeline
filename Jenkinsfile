@@ -25,7 +25,7 @@ pipeline {
                 sh '''
                 echo "Doing test stuff.."
                 echo "Checking Docker processes..."
-                docker ps
+                docker -v
                 '''
             }
         }
