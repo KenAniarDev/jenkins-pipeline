@@ -15,6 +15,7 @@ pipeline {
             steps {
                 sh 'echo $PATH'
                 sh 'ls'
+                sh 'docker -v'
                 echo "Jenkins Building Updated.."
                 sh '''
                 echo "doing build stuff.."
