@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh '/usr/bin/docker -v'
+                sh 'ls'
                 echo "Jenkins Building Updated.."
                 sh '''
                 echo "doing build stuff.."
