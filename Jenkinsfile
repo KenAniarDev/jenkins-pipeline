@@ -5,7 +5,7 @@ pipeline {
         }
     }
     environment {
-        DOCKER_HOST = 'tcp://127.0.0.1:2375'
+        DOCKER_HOST = 'tcp://127.0.0.1:2376'
     }
     triggers {
         pollSCM('* * * * *')
@@ -13,6 +13,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh 'docker info'
                 echo "Jenkins Building Updated.."
                 sh '''
                 echo "doing build stuff.."
@@ -25,7 +26,6 @@ pipeline {
                 sh '''
                 echo "Doing test stuff.."
                 echo "Checking Docker processes..."
-                docker -v
                 '''
             }
         }
