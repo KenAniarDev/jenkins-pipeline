@@ -4,13 +4,16 @@ pipeline {
             label 'docker-agent-alpine'
         }
     }
-    
+    environment {
+        PATH = "/usr/local/bin:/usr/bin:/bin:/usr/bin/docker:$PATH"
+    }
     triggers {
         pollSCM('* * * * *')
     }
     stages {
         stage('Build') {
             steps {
+                sh 'echo $PATH'
                 sh 'ls'
                 echo "Jenkins Building Updated.."
                 sh '''
