@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'docker info'
+                sh 'echo $PATH'
                 echo "Jenkins Building Updated.."
                 sh '''
                 echo "doing build stuff.."
